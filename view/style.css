@@ -53,11 +53,10 @@ button:hover, .check-box:hover > *, .check-box:hover {
     border-style: solid;
     border-color: white;
     border-width: 2px;
-    border-bottom: 2px;
     border-radius: 0;
     text-align: center;
     position: relative;
-    margin: 150px 0;
+    margin: 75px 0;
 }
 
 .text-div {

@@ -7,7 +7,7 @@ let nbPoints = 0
 let resetButton
 let playButton
 let play = false
-let lastPoint
+let lastPoint 
 let speed = 10
 
 function reset(){
@@ -17,7 +17,13 @@ function reset(){
     A.draw()
     B.draw()
     C.draw()
+    
     strokeWeight(0)
+    let r1 = random()
+    let r2 = random()
+    lastPoint.x = (1 - sqrt(r1)) * A.x + (sqrt(r1) * (1 - r2)) * B.x + (r2 * sqrt(r1)) * C.x
+    lastPoint.y = (1 - sqrt(r1)) * A.y + (sqrt(r1) * (1 - r2)) * B.y + (r2 * sqrt(r1)) * C.y
+    lastPoint.draw()
 }
 
 function toggleSim(){
@@ -32,13 +38,11 @@ function toggleSim(){
 
 function speedCheck(){
     if(this.checked()){
-        speed = 100000
-        this.changed(speedCheck)
+        speed = 1000
         this.child()[1].innerHTML = 'Slow Down'
     }
     else{
         speed = 1
-        this.changed(speedCheck)
         this.child()[1].innerHTML = 'Speed Up'
     }
 }
@@ -54,23 +58,15 @@ function setup(){
     B = new Point(width - padding, height - padding, diameter)
     C = new Point((width - padding * 2) / 2, sqrt(3) * padding, diameter)
 
-    lastPoint = new Point(0, 0, smalldiameter)
-    let r1 = random()
-    let r2 = random()
-    lastPoint.x = (1 - sqrt(r1)) * A.x + (sqrt(r1) * (1 - r2)) * B.x + (r2 * sqrt(r1)) * C.x
-    lastPoint.y = (1 - sqrt(r1)) * A.y + (sqrt(r1) * (1 - r2)) * B.y + (r2 * sqrt(r1)) * C.y
-
     playButton = createButton('Play')
     playButton.parent('sierpinski')
     playButton.position(padding, padding)
     playButton.mousePressed(toggleSim)
 
-
     resetButton = createButton('Reset')
     resetButton.parent('sierpinski')
     resetButton.position(padding * 2 + playButton.width, padding)
     resetButton.mousePressed(reset)
-
 
     label = document.createElement('label')
     label.id = 'speed-label'
@@ -81,11 +77,9 @@ function setup(){
     speedUp.class('check-box')
     speedUp.id('speed-check')
     speedUp.changed(speedCheck)
-
-    A.draw()
-    B.draw()
-    C.draw()
-    strokeWeight(0)
+    
+    lastPoint = new Point(0, 0, smalldiameter)
+    reset()
 }
 
 function draw(){
