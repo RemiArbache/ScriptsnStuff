@@ -1,0 +1,68 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: #455A64;
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-left: 50px;
+}
+
+button, .check-box {
+    display: inline;
+    margin: 50px;
+    padding: 1%;
+    background: none;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    font-size: 24px;
+}
+
+.check-box > input {
+    display: none;
+}
+
+.check-box{
+    position: absolute;
+    top:  150px;
+    left: 50px;
+    margin: 50px;
+}
+
+button:hover, .check-box:hover > *, .check-box:hover {
+    background-color: white;
+    color: black;
+}
+
+
+#defaultCanvas0 {
+    border: white;
+    border-radius: 0;
+}
+
+.script-div {
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    border-bottom: 2px;
+    border-radius: 0;
+    text-align: center;
+    position: relative;
+    margin: 150px 0;
+}
+
+.text-div {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
