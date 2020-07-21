@@ -3,10 +3,11 @@ class Point{
         this.x = x;
         this.y = y;
         this.diameter = d;
+
     }
 
-    draw(){
-        ellipse(this.x, this.y, this.diameter, this.diameter);
+    draw(p){
+        p.ellipse(this.x, this.y, this.diameter, this.diameter);
     }
 
     halfway(pointB, diameter){
