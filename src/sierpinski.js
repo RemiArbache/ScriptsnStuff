@@ -51,14 +51,13 @@ let sierpinskiSketch = function(p){
     
     p.setup = function() {
         let canvas = p.createCanvas(900, 900)
-        p.background(69,90,100) 
         canvas.parent('sierpinski')
         p.textSize(24)
         p.textFont('Segoe UI')
         
         A = new Point(padding, p.height - padding, diameter)
         B = new Point(p.width - padding, p.height - padding, diameter)
-        C = new Point((p.width - padding * 2) / 2, p.sqrt(3) * padding, diameter)
+        C = new Point(p.width / 2, p.height - padding - ( (p.sqrt(3)/2) * (p.width - 2 * padding))  , diameter)
         
         playButton = p.createButton('Play')
         playButton.parent('sierpinski')
@@ -113,4 +112,4 @@ let sierpinskiSketch = function(p){
     }   
 }
 
-let myp5 = new p5(sierpinskiSketch)
+let sketch1 = new p5(sierpinskiSketch)
